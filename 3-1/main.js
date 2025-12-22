@@ -1,3 +1,7 @@
+const snd01 = new Howl({
+  src: "./sound/se01.mp3"
+});
+
 // ゲームの状態
 const CONTINUE = null; // まだ決着がついていない
 const WIN_PLAYER_1 = 1; // 〇の勝ち
@@ -21,6 +25,7 @@ for (let row = 0; row < 3; row++) {
             if (cells[row][col] === 0) { //置けるかどうかの判定
             putMark(row, col); // ○か×を置く
             turn = turn * -1;
+            snd01.play();
             thinkAI(); //AIに考えてもらう
             turn = turn * -1
             check(); // ゲームの状態を確認
